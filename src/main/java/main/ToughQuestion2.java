@@ -20,6 +20,7 @@ class ToughQuestion2 {
                         case 1 : System.out.println("Enter the number of Slice of bread");
                         	bread = Integer.parseInt(br.readLine());
                         	//call the function which calculate the calories for only bread
+                        	 cal.calculateCalories(bread);
                         	System.out.println();
                         	break;
                         case 2 : System.out.println("Enter the number of Slice of bread");
@@ -27,6 +28,7 @@ class ToughQuestion2 {
                         	System.out.println("Enter the number teaspoon of Jam");
                         	jam = Integer.parseInt(br.readLine());
                         	//call the function which calculate the calories for only bread & jam
+                        	 cal.calculateCalories(bread,jam);
                         	System.out.println();
                         	break;
                         case 3 : System.out.println("Enter the number of Slice of bread");
@@ -36,18 +38,38 @@ class ToughQuestion2 {
                         	System.out.println("Enter the number teaspoon of Butter");
                         	butter = Integer.parseInt(br.readLine());
                         	//call the function which calculate the calories for  bread,jam & butter
+                        	cal.calculateCalories(bread, jam, butter);
                         	System.out.println();
                         	break;
                         }
-                        //System.out.printf("%.3f",ca.calculateEnergy());
-                        //System.out.println(" kJ of energy generated from "+ca.returnCalories()+" calories");
+                        System.out.printf("%.3f",cal.calculateEnergy());
+                        System.out.println(" kJ of energy generated from "+cal.returnCalories()+" calories");
+                       
+                       
             }
 }
 class Calories {
-            
-            int calculateCalories() {
+            int  total_cal;
+            int calculateCalories(int bread_cal) {
             //you have to overload this function for three parameters refer the question
-            	return -1;
+            	return (total_cal = bread_cal*74 ) ;
+            	
+            }
+            int calculateCalories(int bread, int jam)
+            {
+            	return (total_cal = (bread*74)+(jam*26));
+            	
+            }
+            int calculateCalories(int bread, int jam,int butter)
+            {
+            	return (total_cal = (bread*74)+(jam*26)+(butter*102));
+            	
+            }int returnCalories()
+            {
+            	return total_cal;
+            }
+            double calculateEnergy() {
+            	return (4.1868*total_cal);
             }
             
             
